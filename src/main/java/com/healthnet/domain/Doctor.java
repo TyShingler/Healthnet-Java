@@ -1,13 +1,14 @@
 package com.healthnet.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by Ormarr on 12/27/2015.
+ * Created by Ormarr on 12/28/2015.
  */
-
 @Entity
-public class Patient {
+public class Doctor {
 
     @Id
     @GeneratedValue
@@ -16,13 +17,10 @@ public class Patient {
     private String username;
     private String password;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private MedicalHistory medicalHistory;
+    @ManyToMany(mappedBy = "doctors", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<MedicalHistory> patients = new ArrayList<MedicalHistory>();
 
-    public Patient() {
-    }
-
-    public Patient(String username, String password){
+    public Doctor(String username, String password){
         setUsername(username);
         setPassword(password);
     }
@@ -47,11 +45,18 @@ public class Patient {
         this.password = password;
     }
 
-    public MedicalHistory getMedicalHistory() {
-        return medicalHistory;
+    public List<MedicalHistory> getPatients() {
+        return patients;
     }
 
-    public void setMedicalHistory(MedicalHistory medicalHistory) {
-        this.medicalHistory = medicalHistory;
+
+
+    public void setPatients(List<MedicalHistory> patients) {
+        this.patients = patients;
+    }
+
+    public void addPatient(MedicalHistory patient){
+        patient.getDoctors().add(this);
+        patients.add(patient);
     }
 }
