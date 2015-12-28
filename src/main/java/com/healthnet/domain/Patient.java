@@ -2,9 +2,6 @@ package com.healthnet.domain;
 
 import javax.persistence.*;
 
-/**
- * Created by Ormarr on 12/27/2015.
- */
 
 @Entity
 public class Patient {

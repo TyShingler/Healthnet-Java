@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Ormarr on 12/27/2015.
- */
+
 
 @Entity
 public class MedicalHistory {

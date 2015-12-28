@@ -4,9 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Ormarr on 12/28/2015.
- */
+
 @Entity
 public class Doctor {
 
