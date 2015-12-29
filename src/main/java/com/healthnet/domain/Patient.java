@@ -13,7 +13,8 @@ public class Patient {
     private String username;
     private String password;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne
+    @JoinColumn(name = "MEDICAL_HISTORY_ID")
     private MedicalHistory medicalHistory;
 
     public Patient() {
@@ -52,3 +53,11 @@ public class Patient {
         this.medicalHistory = medicalHistory;
     }
 }
+
+/*------NOTES-----------------------------------------------------------------------------------------------------------
+        -Detached Entity Error
+    -Problem- Error in start up about the relationship between Patient and MedicalHistory. Happens when you are adding
+    the MedicalHistory to the Patient
+
+    -Solution-
+ */

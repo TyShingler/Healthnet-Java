@@ -24,6 +24,9 @@ public class MedicalHistory {
         inverseJoinColumns = {@JoinColumn(name = "Doctor_ID")})
     private List<Doctor> doctors = new ArrayList<Doctor>();
 
+    public MedicalHistory() {
+    }
+
     public MedicalHistory(String username, String firstName, String lastName) {
         this.username = username;
         this.firstName = firstName;

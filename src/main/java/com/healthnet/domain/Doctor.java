@@ -18,6 +18,9 @@ public class Doctor {
     @ManyToMany(mappedBy = "doctors", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<MedicalHistory> patients = new ArrayList<MedicalHistory>();
 
+    public Doctor() {
+    }
+
     public Doctor(String username, String password){
         setUsername(username);
         setPassword(password);
